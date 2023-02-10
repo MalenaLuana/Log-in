@@ -1,4 +1,5 @@
 require('dotenv').config()
+
 const { Sequelize } = require('sequelize');
 
 const fs = require('fs');
@@ -19,7 +20,7 @@ const basename = path.basename(__filename);
 
 const modelDefiners = [];
 
-// Leemos todos los archivos de la carpeta Models, los requerimos y agregamos al arreglo modelDefiners
+// Leo todos los archivos de la carpeta Models, los requerimos y agregamos al arreglo modelDefiners
 fs.readdirSync(path.join(__dirname, '/models'))
   .filter((file) => (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js'))
   .forEach((file) => {
@@ -36,8 +37,8 @@ sequelize.models = Object.fromEntries(capsEntries);
 const {Users,Note} = sequelize.models
 
 
-Users.hasMany(Note,{as:'posts',foreignKey:'authorID'})
-Note.belongsTo(Users)
+Users.hasMany(Note,{sourceKey:'id',foreignKey:'userID'})
+Note.belongsTo(Users,{foreignKey:'userID',targetKey:'id'})
 
 
 
