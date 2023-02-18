@@ -1,5 +1,8 @@
 import { createAsyncThunk} from '@reduxjs/toolkit'
 import axios from 'axios'
+
+
+
 export const fetchAllUsers = createAsyncThunk(
     'users/getUsers',
     async(thunkAPI)=>{
@@ -9,4 +12,9 @@ export const fetchAllUsers = createAsyncThunk(
     }
   )
   
+
+export const fetchUserByID = createAsyncThunk(
+  'userID/getUserID',
+ 
+)
                              

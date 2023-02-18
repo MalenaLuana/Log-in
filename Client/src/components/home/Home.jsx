@@ -6,7 +6,7 @@ import Register from "./Register";
 
 export default function Home(){
     const dispatch = useDispatch()
-    const {users} =useSelector((state)=>state.getUsers)
+    const {isLogin} =useSelector((state)=>state.getUsers)
 
     useEffect(()=>{
        dispatch(fetchAllUsers())
@@ -17,8 +17,14 @@ export default function Home(){
  
     return(
         <div>
-        <LogIn/>
-         <Register/>
+           {
+            isLogin === false ?
+            <LogIn/> :
+            <div>
+                estas logeado
+            </div>
+  
+           }
         </div>
     )
 }

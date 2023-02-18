@@ -1,6 +1,5 @@
 const {Users,Note} = require('../db')
- 
- 
+const bcrypt = require('bcrypt');
  
 const getUSers = async (req,res)=>{
 
