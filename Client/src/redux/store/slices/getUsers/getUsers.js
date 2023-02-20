@@ -8,7 +8,8 @@ export const getUsersSlice = createSlice({
     users: [],
     user: null,
     isLogin: null,
-    loginErrors: { msg: '' }
+    loginErrors: { msg: '' },
+    singUpMsg:null
 
   },
   reducers: {
@@ -20,7 +21,7 @@ export const getUsersSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(actions.fetchAllUsers.fulfilled, (state, action) => {
-      // Add user to the state array
+
       state.users = action.payload
     })
 
@@ -37,6 +38,18 @@ export const getUsersSlice = createSlice({
 
       }
 
+    })
+    builder.addCase(actions.postNewUser.fulfilled, (state, action) => {
+      // Add user to DB
+      if(action.payload==='Ya existe un usuario con esa cuenta de mail'){
+        state.singUpMsg=action.payload
+      } else{
+        state.user=action.payload
+        window.localStorage.setItem(
+          'loggedUserData', JSON.stringify(action.payload)
+        )
+        state.isLogin=true
+      }
     })
   },
 })

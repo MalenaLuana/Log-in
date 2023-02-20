@@ -21,4 +21,14 @@ export const compareLoginData = createAsyncThunk(
   }
 )
 
+
+export const postNewUser = createAsyncThunk(
+  'newUser/postUser',
+  async(payload)=>{
+    const {data}= await axios.post(`http://localhost:3001/users`,payload)
+    return data
+    
+  }
+)
+
                              

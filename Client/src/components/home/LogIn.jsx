@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { compareLoginData } from "../../redux/actions";
-import { Link,useNavigate} from "react-router-dom";
+import { Link} from "react-router-dom";
 
 
 export default function LogIn() {
@@ -25,7 +25,7 @@ export default function LogIn() {
     )
   }
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     const payload = input
     dispatch(compareLoginData(payload))

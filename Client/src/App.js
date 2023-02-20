@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { BrowserRouter as Router,Route, Routes,redirect, Navigate} from 'react-router-dom'
 import Home from './components/home/Home';
-import Singup from './components/home/SingUp';
+import Singup from './components/home/singUp/SingUp';
+
 import UserHome from './components/UserHome';
 
 
@@ -25,7 +26,7 @@ useEffect(()=>{
     <Router>
       <Routes>
        <Route exact path="/" element={user? <Navigate to={'/home'}/> :<Home/> }/>  
-       <Route exact path="/singup" element={<Singup/>}/> 
+       <Route exact path="/singup" element={user?<Navigate to={'/home'}/> :<Singup/>}/> 
        <Route exact path="/home" element={user? <UserHome/>:<Navigate to={'/'}/>}/> 
        </Routes>
     </Router>

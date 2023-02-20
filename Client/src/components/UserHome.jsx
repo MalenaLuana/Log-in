@@ -7,7 +7,7 @@ import { logOut } from "../redux/store/slices/getUsers/getUsers";
 export default function UserHome(){
 
     const dispatch= useDispatch()
-    const {user}=useSelector(state=>state.getUsers)
+ 
     
   
     
