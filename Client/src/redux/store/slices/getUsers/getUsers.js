@@ -1,30 +1,45 @@
 import { createSlice } from '@reduxjs/toolkit'
 import * as actions from '../../../actions'
 
+
 export const getUsersSlice = createSlice({
   name: 'users',
   initialState: {
-    users:[],
-    userID:{},
-    isLogin:false,
+    users: [],
+    user: null,
+    isLogin: null,
+    loginErrors: { msg: '' }
 
   },
   reducers: {
-     compareLoginData: (state,action) => {
-       const filter = state.users.filter(e=>e.email===action.payload.email)
-       if(filter.length){
-        state.isLogin=true
-       }
-
+    logOut: (state) => {
+      state.isLogin = null
+      state.user=null
+     
     },
-   },
-  extraReducers:(builder) => {
+  },
+  extraReducers: (builder) => {
     builder.addCase(actions.fetchAllUsers.fulfilled, (state, action) => {
       // Add user to the state array
-      state.users=action.payload
+      state.users = action.payload
+    })
+
+    builder.addCase(actions.compareLoginData.fulfilled, (state, action) => {
+      if (action.payload === 'User not found' || action.payload === 'Wrong password') {
+        state.loginErrors = action.payload
+
+      } else {
+        state.user = action.payload
+        window.localStorage.setItem(
+          'loggedUserData', JSON.stringify(action.payload)
+        )
+        state.isLogin=action.payload
+
+      }
+
     })
   },
 })
 
-export const {compareLoginData} = getUsersSlice.actions
+export const { compareLoginData, logOut } = getUsersSlice.actions
 export default getUsersSlice

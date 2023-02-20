@@ -15,7 +15,7 @@ router.delete('/users',deleteUsers)
 router.get('/users/:id/notes',getUserNotes)
 
 
-router.get('/login',comparePassword)
+router.get('/login/:email/:password',comparePassword)
 //?------ Notes routes----
 
 

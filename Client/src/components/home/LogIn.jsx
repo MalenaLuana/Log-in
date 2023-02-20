@@ -1,16 +1,22 @@
-import { useState } from "react"
-import { useDispatch} from "react-redux";
-import { compareLoginData } from "../../redux/store/slices/getUsers/getUsers";
+import { useEffect, useState } from "react"
+import { useDispatch, useSelector } from "react-redux";
+import { compareLoginData } from "../../redux/actions";
+import { Link,useNavigate} from "react-router-dom";
+
+
 export default function LogIn() {
-  
+
   const dispatch = useDispatch()
+
+
   const [input, setInput] = useState({
     email: '',
     password: ''
   })
 
-  const handleChange = (e) => {
 
+
+  const handleChange = (e) => {
     setInput(
       {
         ...input,
@@ -19,15 +25,18 @@ export default function LogIn() {
     )
   }
 
-  const handleSubmit = (e)=>{
+  const handleSubmit = async(e) => {
     e.preventDefault()
-    dispatch(compareLoginData(input))
+    const payload = input
+    dispatch(compareLoginData(payload))
+   
   }
+
 
 
   return (
     <div>
-      <form onSubmit={e=>handleSubmit(e)}>
+      <form onSubmit={e => handleSubmit(e)}>
         <div>
           <label htmlFor="email">e-mail</label>
           <input name='email' type="text" id="email" onChange={e => handleChange(e)} />
@@ -40,6 +49,9 @@ export default function LogIn() {
 
         <button type="submit">ingresar</button>
       </form>
+      <div>
+        <Link to={'/singup'}><button >Registrarse</button></Link>
+      </div>
     </div>
   )
 }
