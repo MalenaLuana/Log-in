@@ -8,7 +8,7 @@ export const getUsersSlice = createSlice({
     users: [],
     user: null,
     isLogin: null,
-    loginErrors: { msg: '' },
+    loginErrors: null,
     singUpMsg:null
 
   },
@@ -18,17 +18,24 @@ export const getUsersSlice = createSlice({
       state.user=null
      
     },
+    singUpErr: (state,action)=>{
+      state.singUpMsg=action.payload
+    },
+    reset:(state)=>{
+      state.singUpMsg=null
+      state.loginErrors= null
+    }
+
   },
   extraReducers: (builder) => {
     builder.addCase(actions.fetchAllUsers.fulfilled, (state, action) => {
-
       state.users = action.payload
     })
 
     builder.addCase(actions.compareLoginData.fulfilled, (state, action) => {
       if (action.payload === 'User not found' || action.payload === 'Wrong password') {
         state.loginErrors = action.payload
-
+       
       } else {
         state.user = action.payload
         window.localStorage.setItem(
@@ -37,7 +44,7 @@ export const getUsersSlice = createSlice({
         state.isLogin=action.payload
 
       }
-
+    
     })
     builder.addCase(actions.postNewUser.fulfilled, (state, action) => {
       // Add user to DB
@@ -54,5 +61,5 @@ export const getUsersSlice = createSlice({
   },
 })
 
-export const { compareLoginData, logOut } = getUsersSlice.actions
+export const { compareLoginData, logOut,reset } = getUsersSlice.actions
 export default getUsersSlice

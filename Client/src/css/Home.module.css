@@ -1,0 +1,87 @@
+
+
+@font-face { font-family: Margin; 
+    
+    src: url('./fonts/Margin\ DEMO.otf')
+   ;
+  
+ }
+ @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&display=swap');
+
+ 
+.container{
+    min-height: 100vh;
+    background-color: #374013;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+}
+
+.titleBox{
+    color: #f0f3d9;
+    display: flex;
+    flex-direction: column;
+    background-image: url('./images/background_movile.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-sizing: border-box;
+    height: 80vh;
+    width:40%;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    padding: 3rem;
+    box-shadow: 10px 10px 16px -6px rgba(0, 0, 0, 0.6);
+}
+
+.title{
+font-family: 'Margin';
+letter-spacing: 4px;
+font-size: 6rem;
+}
+
+.subtitle{
+    font-family: 'Quicksand', sans-serif;
+    font-size: large;
+    font-weight: 300;
+    margin-top: -10%;
+}
+.details{
+    font-family: 'Quicksand', sans-serif;
+}
+
+
+
+@media screen and (max-width: 1200px) {
+
+.details{display: none;}
+.container{
+    background-image: url('./images/background_movile.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+.titleBox{
+    background-image: none;
+    height: 0%;
+    padding: 0;
+    box-shadow: none;
+}
+.titlecontent{
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;   
+}
+.title{
+    font-size: 4rem;
+}
+.subtitle{
+    font-size: small;
+    margin-top: -40%;
+}
+}
