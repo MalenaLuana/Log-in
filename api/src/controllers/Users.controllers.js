@@ -54,6 +54,8 @@ const deleteUsers = async (req, res) => {
     }
 }
 
+/*notas del usuario*/
+
 const getUserNotes = async (req, res) => {
     const { id } = req.params
     try {

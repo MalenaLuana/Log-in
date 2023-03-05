@@ -3,7 +3,7 @@ import axios from 'axios'
 
 
 
-
+//Acciones manejo de usuarios
 export const fetchAllUsers = createAsyncThunk(
     'users/getUsers',
     async()=>{
@@ -31,4 +31,21 @@ export const postNewUser = createAsyncThunk(
   }
 )
 
-                             
+//acciones manejo de Notas <3
+
+export const getUserNotes = createAsyncThunk(
+  'notes/getNotes',
+  async(payload)=>{
+    const {data}= await axios.get(`http://localhost:3001/users/${payload}/notes`)
+    return data
+  }
+)            
+
+export const postNote = createAsyncThunk(
+  'newNote/postNote',
+  async(payload)=>{
+    const {data}= await axios.post(`http://localhost:3001/notes`,payload)
+    return data
+    
+  }
+)

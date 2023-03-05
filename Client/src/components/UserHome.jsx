@@ -1,26 +1,37 @@
 
-import { useEffect, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { logOut } from "../redux/store/slices/getUsers/getUsers";
+import { getUserNotes } from "../redux/actions";
+import Notes from "./Notes";
+import PostNote from "./PostNote";
 
-export default function UserHome(){
-
-    const dispatch= useDispatch()
- 
-    
+export default function UserHome() {
+     
+    const dispatch = useDispatch()
   
-    
-    const handleLogOut = ()=>{
-       window.localStorage.removeItem('loggedUserData')
-      dispatch(logOut())
-    }
+    const { notes } = useSelector(state => state.getNotes)
+    const [user, setUser] = useState(null)
 
-    
-    
-return (
-    <div>
-     User home
-     <Link to={'/'}><button onClick={e=>handleLogOut( )}>Log out</button></Link>
-    </div>
-)}
+    useEffect(() => {
+        const userData = window.localStorage.getItem('loggedUserData')
+        const user = JSON.parse(userData)
+        dispatch(getUserNotes(user.id))
+        setUser(user.id)
+
+       
+    }, [dispatch])
+
+
+    return (
+        <div>
+            {user ?
+                <div>
+                    <Notes notes={notes} />
+                    <PostNote user={user} />
+                </div>
+                : <p>Perdón hubo un error, estamos trabajando en ello!</p>
+            }
+
+        </div>
+    )
+}

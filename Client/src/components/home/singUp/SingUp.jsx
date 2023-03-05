@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { postNewUser } from "../../../redux/actions";
 import { HandleErrors } from "./HandleErrors";
 import { passwordValidate } from "./HandleErrors";
-
+import style from '../../../css/Singup.module.css'
+import { reset } from "../../../redux/store/slices/getUsers/getUsers";
 
 export default function Singup() {
 
@@ -29,6 +30,9 @@ export default function Singup() {
     if (singUpMsg) {
       setLocalError('Ya existe una cuenta con esa direccion de mail')
     }
+    setTimeout(()=>{
+      setLocalError('')
+    },3000)
   }, [singUpMsg])
 
   const handleChange = (e) => {
@@ -42,7 +46,10 @@ export default function Singup() {
     setError(HandleErrors({ ...input, [e.target.name]: e.target.value }))
     setTextError(Object.entries(error))
     setPasswordError(passwordValidate({ ...input, [e.target.name]: e.target.value }))
-     
+    setTimeout(()=>{
+      setTextError('')
+      setError('')
+    },3000)
   }
 
 
@@ -58,62 +65,77 @@ export default function Singup() {
       password: input.password
     }
 
-    if (input.email === '' || input.name === '' || input.password === '' || input.confirmPassword === '') {
+    if (payload.email === '' || payload.name === '' || payload.password === '' || payload.confirmPassword === '') {
       setLocalError('Completar todos los campos')
-    } else if(error.email ||error.name || passwordError.password){
-      setLocalError('Revisar información del formulario')
-    } else{
+      setTimeout(()=>{
+        setLocalError('')
+      },3000)
+    } else if(!error.email &&!error.name && !passwordError.password){
+     
+  
       dispatch(postNewUser(payload))
       setLocalError(null)
      
     }
-
+    setTimeout(()=>{
+      setTextError('')
+    },3000)
+    dispatch(reset())
     
 
   }
 
   return (
 
-    <div>
+    <div className={style.container}>
+
+      <div className={style.titleContent}>
+        <p>Bienvenidx a </p>
+        <p className={style.title}>NotaTodo</p>
+        <p className={style.subtitle}>Rellena el formulario para empezar</p>
+      </div>
       
+      <div className={style.formBox}>
         {textError && textError.map(e => {
           return (
-            <p key={e[0]}>{e[1]}</p>
+            <p className={style.localError} key={e[0]}>{e[1]}</p>
           )
         })}
   
-        {locarErrors && <p>{locarErrors}</p>}
+        {locarErrors && <p className={style.localError}>{locarErrors}</p>}
     
-      <form onSubmit={e => handleSubmit(e)}>
+      <form onSubmit={e => handleSubmit(e)} className={style.form}>
 
-        <div>
+        <div className={style.formContent}>
           <label htmlFor="email">e-mail</label>
           <input id="email" type="text" name="email" onChange={e => handleChange(e)} />
 
         </div>
 
-        <div>
+        <div className={style.formContent}>
           <label htmlFor="name">Nombre de usuario</label>
           <input id='name' type="text" name='name' onChange={e => handleChange(e)} />
         </div>
 
-        <div>
+        <div className={style.formContent}>
           <label htmlFor="password">Contraseña</label>
           <input id="password" type="password" name='password' onChange={e => handleChange(e)} />
         </div>
-        <div>
+        <div className={style.formContent}>
           <label htmlFor="confirmPassword">Confirmar contraseña</label>
           <input id="confirmPassword" type="password" name='confirmPassword' onChange={e => handleChange(e)} />
         </div>
-        <div>
-          <button>Enviar</button>
-        </div>
+        
+          <button className={style.submit_btn}>Crear cuenta</button>
+     
 
       </form>
-
-
-      <Link to={'/'}>Ya tengo una cuenta</Link>
-
+      <div className={style.footer}>
+         <p>Ya tengo una cuenta</p>
+      <Link to={'/'} className={style.login}>Iniciar sesión</Link>
+      </div>
+      </div>
+      
     </div>
   )
 } 

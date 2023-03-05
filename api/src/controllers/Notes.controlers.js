@@ -18,7 +18,7 @@ const createNote = async (req, res) => {
          content,
          userID
       })
-      res.send('nota creada')
+      res.json(newNote)
    } catch (error) {
       res.send(error.message)
    }

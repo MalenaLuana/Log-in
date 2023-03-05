@@ -11,6 +11,7 @@
  
 .container{
     min-height: 100vh;
+    box-sizing: border-box;
     background-color: #374013;
     display: flex;
     justify-content: center;
@@ -67,7 +68,7 @@ font-size: 6rem;
 }
 .titleBox{
     background-image: none;
-    height: 0%;
+    height: 20vh;
     padding: 0;
     box-shadow: none;
 }
@@ -79,9 +80,17 @@ font-size: 6rem;
 }
 .title{
     font-size: 4rem;
+    margin-top: -5%;
 }
 .subtitle{
     font-size: small;
-    margin-top: -40%;
+
 }
+}
+
+@media screen and (max-width: 300px){
+.title{
+    font-size: 3rem;
+}
+
 }

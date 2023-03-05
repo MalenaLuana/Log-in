@@ -1,0 +1,224 @@
+@font-face {
+    font-family: Margin;
+    src: url('./fonts/Margin\ DEMO.otf');
+
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    padding: 3rem;
+    justify-content: center;
+    align-items: center;
+    background-color: #374013;
+    box-sizing: border-box;
+}
+
+.titleContent {
+    color: #f0f3d9;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 80vh;
+    width: 40%;
+    background-image: url('./images/background_movile.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-direction: column;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    padding: 3rem;
+    box-shadow: 10px 10px 16px -6px rgba(0, 0, 0, 0.6);
+}
+
+.title {
+    font-family: 'Margin';
+    letter-spacing: 4px;
+    font-size: 6rem;
+    margin-top: 0%;
+}
+
+.subtitle {
+    font-family: 'Quicksand', sans-serif;
+    font-size: large;
+    font-weight: 300;
+    margin-top: -10%;
+}
+
+.formBox {
+    position: relative;
+    background-color: #f0f3d9;
+    width: 40%;
+    box-shadow: 10px 10px 16px -6px rgba(0, 0, 0, 0.6);
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.form {
+    height: 80%;
+    width: 80%;
+    padding-top: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.formContent {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 90%;
+}
+
+.formContent label {
+    position: absolute;
+    background-color: #f0f3d9;
+    padding-left: 5px;
+    padding-right: 5px;
+    left: 5%;
+    top: -20%;
+}
+
+.formContent input {
+    border: solid 1px #b6be72;
+    background-color: transparent;
+    color: #9fa66c;
+    font-family: 'Quicksand', sans-serif;
+    font-size: large;
+    width: 100%;
+    height: 4rem;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.submit_btn {
+    background-color: #c99711;
+    box-sizing: border-box;
+    color: #f0f3d9;
+    font-size: 1.5rem;
+    font-family: 'Quicksand', sans-serif;
+
+    border-radius: 20px;
+    border: none;
+    width: 50%;
+    height: 3rem;
+}
+
+.footer {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+}
+
+.login {
+    margin-left: 5%;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    color: #9fa66c;
+    text-decoration: underline;
+
+}
+
+/*errroes*/
+.localError {
+    position: absolute;
+    top: 5%;
+    font-family: 'Quicksand', sans-serif;
+    color: #b36a0a;
+    text-align: center;
+}
+
+
+/*responsive*/
+
+
+@media screen and (max-width: 1200px) {
+
+    .container {
+        background-image: url('./images/background_movile.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        flex-direction: column;
+        padding: 0;
+        padding-bottom: 5%;
+    }
+
+    .titleContent {
+        background-image: none;
+        box-shadow: none;
+        color: #f0f3d9;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 20vh;
+        width: 100%;
+    }
+
+
+
+    .title {
+        font-family: 'Margin';
+        letter-spacing: 4px;
+        font-size: 4rem;
+        margin-top: -5%;
+    }
+
+    .subtitle {
+        margin-top: -15%;
+    }
+
+    .formBox {
+        position: relative;
+        width: 80%;
+        padding-top: 10%;
+        padding-bottom: 5%;
+        border-radius: 20px;
+    }
+
+    .submit_btn {
+        width: 90%;
+        height: 3rem;
+    }
+
+    .formContent {
+        width: 90%;
+
+    }
+
+    .formContent input {
+        height: 3.5rem;
+    }
+
+    .footer {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width:300px) {
+    .title {
+        font-size: 3rem;
+    }
+
+    .submit_btn {
+        font-size: 10pt;
+    }
+
+    .formContent label {
+        font-size: 10pt;
+    }
+}
