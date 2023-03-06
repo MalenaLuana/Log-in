@@ -1,6 +1,6 @@
-import { useReducer, useState } from "react"
+import { useState } from "react"
 import { useDispatch } from "react-redux"
-import {  postNote } from "../redux/actions"
+import { getUserNotes, postNote } from "../redux/actions"
 
 
 export default function ({ user}) {
@@ -24,10 +24,11 @@ export default function ({ user}) {
 
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault()
         
-        dispatch(postNote(input))
+        await dispatch(postNote(input))
+        dispatch(getUserNotes(user))
         setInput(
             {
                 userID: user,
@@ -35,12 +36,13 @@ export default function ({ user}) {
                 content: ''
             }
         )
+ 
     }
 
 
     return (
         <div>
-            <form action="" id="form_notes" onSubmit={e => handleSubmit(e)}>
+            <form  id="form_notes" onSubmit={e => handleSubmit(e)}>
 
                 <div>
                     <label htmlFor="title">Título</label>

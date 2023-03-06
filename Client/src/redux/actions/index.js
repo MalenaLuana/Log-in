@@ -49,3 +49,12 @@ export const postNote = createAsyncThunk(
     
   }
 )
+
+export const deleteNote =  createAsyncThunk(
+  'deleteNote/deleteNote',
+  async(payload)=>{
+    const {data}= await axios.delete(`http://localhost:3001/notes/${payload}`)
+    return data
+    
+  }
+)

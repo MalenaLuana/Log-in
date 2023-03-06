@@ -1,17 +1,13 @@
-import { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { getUserNotes } from "../redux/actions"
-
 import Card from "./Card"
+import style from '../css/Notes.module.css'
 
-
-export default function Notes({notes}) {
-
-
+export default function Notes({notes,userID}) {
     
+   
+
     return (
-        <div>
-            Notas
+        <div className={style.container}>
+         <div  className={style.content}>
             {
               notes && notes.length ? notes.map(e => {
                     return (
@@ -19,6 +15,8 @@ export default function Notes({notes}) {
                             key={e.id}
                             title={e.title}
                             content={e.content}
+                            id={e.id}
+                            userID={userID}
                         />
                     )
 
@@ -26,6 +24,7 @@ export default function Notes({notes}) {
 
                     : <p>No hay ninguna nota</p>
             }
+            </div>
         </div>
     )
 }

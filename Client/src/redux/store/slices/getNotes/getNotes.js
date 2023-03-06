@@ -14,7 +14,7 @@ export const getNotesSlice = createSlice({
 
     builder.addCase(actions.getUserNotes.fulfilled, (state, action) => {
    
-      state.notes = action.payload
+      state.notes = action.payload.reverse()
       
     })
 

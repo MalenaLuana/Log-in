@@ -1,0 +1,18 @@
+.container{
+    background-color: #374013;
+    display: flex;
+    min-height: 10vh;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.logo img {
+    width: 50%;
+}
+
+@media screen and (max-width: 1500px) {
+
+  .text{display: none;}
+}
