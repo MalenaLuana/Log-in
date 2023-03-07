@@ -11,12 +11,12 @@
     padding: 3rem;
     justify-content: center;
     align-items: center;
-    background-color: #374013;
+    background-color: #262b31;
     box-sizing: border-box;
 }
 
 .titleContent {
-    color: #f0f3d9;
+    color: #000000;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -34,7 +34,7 @@
 
 .title {
     font-family: 'Margin';
-    letter-spacing: 4px;
+    letter-spacing: 2px;
     font-size: 6rem;
     margin-top: 0%;
 }
@@ -42,13 +42,13 @@
 .subtitle {
     font-family: 'Quicksand', sans-serif;
     font-size: large;
-    font-weight: 300;
+    font-weight: 500;
     margin-top: -10%;
 }
 
 .formBox {
     position: relative;
-    background-color: #f0f3d9;
+    background-color: #4a3fae;
     width: 40%;
     box-shadow: 10px 10px 16px -6px rgba(0, 0, 0, 0.6);
     border-bottom-right-radius: 20px;
@@ -81,8 +81,9 @@
 }
 
 .formContent label {
+    color: white;
     position: absolute;
-    background-color: #f0f3d9;
+    background-color: #4a3fae;
     padding-left: 5px;
     padding-right: 5px;
     left: 5%;
@@ -90,11 +91,12 @@
 }
 
 .formContent input {
-    border: solid 1px #b6be72;
+    border: solid 1px #ffffff;
     background-color: transparent;
-    color: #9fa66c;
+    color: #deb501;
     font-family: 'Quicksand', sans-serif;
     font-size: large;
+    letter-spacing: 1.5px;
     width: 100%;
     height: 4rem;
     border-radius: 5px;
@@ -103,20 +105,23 @@
 }
 
 .submit_btn {
-    background-color: #c99711;
+    background-color: #deb501;
     box-sizing: border-box;
-    color: #f0f3d9;
+    color: #ffffff;
     font-size: 1.5rem;
     font-family: 'Quicksand', sans-serif;
-
-    border-radius: 20px;
+    font-weight: 700;
+    border-radius: 10px;
     border: none;
     width: 50%;
     height: 3rem;
+    box-shadow: 10px 9px 2px -4px rgba(0, 0, 0, 0.53);
+    transition: all ease 0.2s;
 }
 
 .footer {
     width: 100%;
+    color: white;
     align-items: center;
     display: flex;
     justify-content: center;
@@ -127,9 +132,9 @@
     margin-left: 5%;
     font-family: 'Quicksand', sans-serif;
     font-weight: bold;
-    color: #9fa66c;
+    font-size: 15pt;
+    color: #deb501;
     text-decoration: underline;
-
 }
 
 /*errroes*/
@@ -137,7 +142,7 @@
     position: absolute;
     top: 5%;
     font-family: 'Quicksand', sans-serif;
-    color: #b36a0a;
+    color: #deb501;
     text-align: center;
 }
 
@@ -153,19 +158,20 @@
         background-size: cover;
         flex-direction: column;
         padding: 0;
-        padding-bottom: 5%;
+
+
     }
 
     .titleContent {
         background-image: none;
         box-shadow: none;
-        color: #f0f3d9;
-        display: flex;
-        flex-direction: column;
+        color: #000000;
+        display: grid;
+        row-gap: 20px;
         justify-content: center;
-        align-items: center;
         height: 20vh;
         width: 100%;
+
     }
 
 
@@ -173,20 +179,23 @@
     .title {
         font-family: 'Margin';
         letter-spacing: 4px;
+        margin: 0;
         font-size: 4rem;
-        margin-top: -5%;
+        text-align: center;
     }
 
     .subtitle {
-        margin-top: -15%;
+        text-align: center;
+        font-size: smaller;
     }
+
 
     .formBox {
         position: relative;
-        width: 80%;
+        width: 100%;
         padding-top: 10%;
         padding-bottom: 5%;
-        border-radius: 20px;
+        border-radius: 20px 20px 0 0;
     }
 
     .submit_btn {

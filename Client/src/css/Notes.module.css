@@ -12,7 +12,7 @@
     }
 
     .content {
-
+        width: 100%;
         display: grid;
         grid-template-columns: 40% 40%;
         column-gap: 5%;

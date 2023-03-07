@@ -100,10 +100,7 @@ export default function LogIn() {
         <Link to={'/singup'} className={style.singup}><span>REGISTRATE</span></Link>
       </div>
       </div>
-      <div className={style.footer}>
-        <p>¿No tenes una cuenta?</p>
-        <Link to={'/singup'} className={style.singup}><span >REGISTRATE</span></Link>
-      </div>
+    
   
     </div>
   )

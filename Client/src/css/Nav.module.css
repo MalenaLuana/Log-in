@@ -1,15 +1,15 @@
 .container{
     background-color: #374013;
+    box-sizing: border-box;
+    min-height: 8vh;
     display: flex;
-    min-height: 10vh;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    box-sizing: border-box;
 }
 
 .logo img {
-    width: 50%;
+    width: 40%;
 }
 
 @media screen and (max-width: 1500px) {

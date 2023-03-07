@@ -90,9 +90,9 @@ export default function Singup() {
     <div className={style.container}>
 
       <div className={style.titleContent}>
-        <p>Bienvenidx a </p>
+
         <p className={style.title}>NotaTodo</p>
-        <p className={style.subtitle}>Rellena el formulario para empezar</p>
+        <p className={style.subtitle}>Rellena el formulario para comenzar a escribir tus notas.</p>
       </div>
       
       <div className={style.formBox}>
