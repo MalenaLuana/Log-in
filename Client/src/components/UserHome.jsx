@@ -16,6 +16,7 @@ export default function UserHome() {
     const [user, setUser] = useState(null)
     const [name, setName] = useState(null)
 
+    const [openPost,setOpenPost] = useState(false)
 
     useEffect(() => {
         const userData = window.localStorage.getItem('loggedUserData')
@@ -26,18 +27,23 @@ export default function UserHome() {
     
     },[dispatch])
 
-
+const handleOpenPost = ()=>{
+   openPost? setOpenPost(false)
+   : setOpenPost(true)
+}
     return (
         <div className={style.container}>
             <Nav userName={name}/>
+            <div className={style.dashboard}>
+                <button onClick={e=>handleOpenPost()}>Crear</button>
             {user ?
                 <div className={style.content}>
-                    <PostNote user={user} />
+                   { openPost && <PostNote user={user} />}
                     <Notes notes={notes} userID={user} />
                 </div>
                 : <p>Perdón hubo un error, estamos trabajando en ello!</p>
             }
-
+            </div>
         </div>
     )
 }

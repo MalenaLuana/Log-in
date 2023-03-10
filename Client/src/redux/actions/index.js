@@ -58,3 +58,13 @@ export const deleteNote =  createAsyncThunk(
     
   }
 )
+
+export const editeNote = createAsyncThunk(
+  'deleteNote/deleteNote',
+  async(payload)=>{
+    const {data}= await axios.put(`http://localhost:3001/notes/${payload.id}`,payload.object)
+    console.log(payload)
+    console.log(data)
+    
+  }
+)

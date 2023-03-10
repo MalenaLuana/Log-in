@@ -12,11 +12,12 @@ const getNotes = async (req, res) => {
 
 const createNote = async (req, res) => {
    try {
-      const { title, content, userID } = req.body
+      const { title, content, userID,color } = req.body
       const newNote = await Note.create({
          title,
          content,
-         userID
+         userID,
+         color
       })
       res.json(newNote)
    } catch (error) {
@@ -34,7 +35,7 @@ const updateNote = async (req, res) => {
       await update.save()
       res.json(update)
    } catch (error) {
-
+     res.json(error.message)
    }
 }
 

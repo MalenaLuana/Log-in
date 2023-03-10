@@ -1,10 +1,13 @@
 .container{
-    background-color: #4b5427;
+    background-color: #f5f5f5;
     width: 100%;
     min-height: 100vh;
-    box-sizing: border-box;
 }
 
-.content{
-    min-height: 90vh;
+
+
+.dashboard{
+    display: flex;
+    flex-direction: column;
+
 }

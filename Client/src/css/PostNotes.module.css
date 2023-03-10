@@ -1,0 +1,23 @@
+.container{
+  /* display: none; */
+}
+
+
+.colors{
+  display: flex;
+  box-sizing: border-box;
+  height: 25px;
+  width: 25%;
+  justify-content: space-around;
+}
+.color_btn{
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 32px;
+  cursor: pointer;
+}
+.color_btn:hover{
+  width: 22px;
+  height: 22px;
+}

@@ -1,18 +1,22 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { getUserNotes, postNote } from "../redux/actions"
+import style from '../css/PostNotes.module.css'
 
-
-export default function ({ user}) {
+export default function ({ user }) {
 
     const dispatch = useDispatch()
 
     const [input, setInput] = useState({
         userID: user,
         title: '',
-        content: ''
+        content: '',
+        color: '#cdc7e5'
     })
 
+    const colors = ['#323575', '#911f5d', '#ef5c3e', '#31a2a4', '#f49a37']
+
+    const [color, setColor] = useState('')
 
     const handleChange = (e) => {
         setInput(
@@ -24,25 +28,32 @@ export default function ({ user}) {
 
     }
 
-    const handleSubmit = async(e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        
         await dispatch(postNote(input))
         dispatch(getUserNotes(user))
         setInput(
             {
                 userID: user,
                 title: '',
-                content: ''
+                content: '',
+                color: '#cdc7e5'
             }
         )
- 
+
     }
 
-
+    const handleColorPick = (e) => {
+        setColor(e.target.value)
+        setInput( {
+            ...input,
+            color: e.target.value
+        })
+       
+    }
     return (
-        <div>
-            <form  id="form_notes" onSubmit={e => handleSubmit(e)}>
+        <div className={style.container}>
+            <form id="form_notes" onSubmit={e => handleSubmit(e)}>
 
                 <div>
                     <label htmlFor="title">Título</label>
@@ -52,6 +63,15 @@ export default function ({ user}) {
                 <div>
                     <label htmlFor="content">Descripción</label>
                     <textarea id='content' value={input.content} name="content" form="form_notes" onChange={e => handleChange(e)}></textarea>
+                </div>
+                <div className={style.colors}>
+                {
+                    colors && colors.map(e => {
+                        return (
+                            <button className={style.color_btn} style={{backgroundColor:e}} key={e} type='button' value={e} onClick={e => handleColorPick(e)}></button>
+                        )
+                    })
+                }
                 </div>
 
                 <button type="submit">Crear</button>

@@ -1,4 +1,4 @@
-import Card from "./Card"
+import Card from "./Card/Card"
 import style from '../css/Notes.module.css'
 
 export default function Notes({notes,userID}) {
@@ -7,7 +7,7 @@ export default function Notes({notes,userID}) {
 
     return (
         <div className={style.container}>
-         <div  className={style.content}>
+       
             {
               notes && notes.length ? notes.map(e => {
                     return (
@@ -17,6 +17,7 @@ export default function Notes({notes,userID}) {
                             content={e.content}
                             id={e.id}
                             userID={userID}
+                            color={e.color}
                         />
                     )
 
@@ -24,7 +25,7 @@ export default function Notes({notes,userID}) {
 
                     : <p>No hay ninguna nota</p>
             }
-            </div>
+          
         </div>
     )
 }

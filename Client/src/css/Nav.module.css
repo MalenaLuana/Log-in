@@ -1,11 +1,12 @@
 .container{
-    background-color: #374013;
+    background-color: #191a19;
     box-sizing: border-box;
     min-height: 8vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
+  
 }
 
 .logo img {
