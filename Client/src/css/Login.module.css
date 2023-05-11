@@ -56,7 +56,7 @@
 .formContent input {
     border: solid 1px #f1f1f1;
     background-color: transparent;
-    color: #deb501;
+    color: #ffd000;
     font-family: 'Quicksand', sans-serif;
     font-size: large;
     letter-spacing: 1.5px;
@@ -68,7 +68,7 @@
 }
 
 .submit_btn {
-    background-color: #deb501;
+    background-color: #d18f00;
     box-sizing: border-box;
     color: #ffffff;
     font-size: 1.5rem;

@@ -5,13 +5,13 @@ const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
 const {
-    DB_USER, DB_PASSWORD, DB_HOST,DB_DATABASE
+    DB_USER, DB_PASSWORD, DB_HOST,DB_DATABASE,DB_URL
   } = process.env;
 
-const connectionString= `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/Project_Login`
+//const connectionString= `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/Project_Login`
 
 
-const sequelize = new Sequelize(connectionString, {
+const sequelize = new Sequelize(DB_URL, {
   logging: false, 
   native: false, 
 });

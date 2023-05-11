@@ -3,7 +3,8 @@ import { useDispatch } from "react-redux"
 import { getUserNotes, postNote } from "../redux/actions"
 import style from '../css/PostNotes.module.css'
 
-export default function ({ user }) {
+import closeBtn from '../css/images/close.png'
+export default function ({ user, openPost }) {
 
     const dispatch = useDispatch()
 
@@ -11,7 +12,7 @@ export default function ({ user }) {
         userID: user,
         title: '',
         content: '',
-        color: '#cdc7e5'
+        color: '#4f3eb4'
     })
 
     const colors = ['#323575', '#911f5d', '#ef5c3e', '#31a2a4', '#f49a37']
@@ -40,6 +41,7 @@ export default function ({ user }) {
                 color: '#cdc7e5'
             }
         )
+        openPost(false)
 
     }
 
@@ -52,19 +54,11 @@ export default function ({ user }) {
        
     }
     return (
-        <div className={style.container}>
-            <form id="form_notes" onSubmit={e => handleSubmit(e)}>
+        <div className={style.container} >
+            
 
-                <div>
-                    <label htmlFor="title">Título</label>
-                    <input id="title" name="title" value={input.title} type="text" onChange={e => handleChange(e)} />
-                </div>
-
-                <div>
-                    <label htmlFor="content">Descripción</label>
-                    <textarea id='content' value={input.content} name="content" form="form_notes" onChange={e => handleChange(e)}></textarea>
-                </div>
-                <div className={style.colors}>
+            <form className={style.formBox} style={{backgroundColor:color}} id="form_notes" onSubmit={e => handleSubmit(e)}>
+            <div className={style.colors}>
                 {
                     colors && colors.map(e => {
                         return (
@@ -73,8 +67,21 @@ export default function ({ user }) {
                     })
                 }
                 </div>
+                <div className={style.formContent}>
+                <div className={style.title}>
+                    <label htmlFor="title">Título:</label>
+                    <input className={style.title_inp} id="title" name="title" value={input.title} type="text" onChange={e => handleChange(e)} />
+                </div>
 
-                <button type="submit">Crear</button>
+                <div className={style.content}>
+                
+                    <textarea id='content' value={input.content} name="content" form="form_notes" onChange={e => handleChange(e)}></textarea>
+                </div>
+              
+
+                <button type="submit"  className={style.create_btn}>Crear</button>
+                <button type="button" className={style.cancel_btn} onClick={()=>openPost(false)}><img src={closeBtn}/></button>
+                </div>
             </form>
         </div>
     )

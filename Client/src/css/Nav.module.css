@@ -1,7 +1,8 @@
 .container{
+    width: 100%;
     background-color: #191a19;
     box-sizing: border-box;
-    min-height: 8vh;
+    min-height: 5vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -10,10 +11,34 @@
 }
 
 .logo img {
-    width: 40%;
+    width: 22%;
 }
 
+.logOut_btn{
+  width: 150px;
+  height: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-family: 'Quicksand';
+  font-size: 15pt;
+}
+.logOut_btn img{
+  width: 15%;
+}
 @media screen and (max-width: 1500px) {
-
+  .logo img{
+    width: 30%;
+   height: 100%;
+  }
   .text{display: none;}
+}
+
+@media screen and (max-width: 500px) {
+  .logo img{
+    width:70%;
+   }
 }

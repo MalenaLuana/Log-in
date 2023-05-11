@@ -3,6 +3,7 @@ import logo from '../css/images/logo1.png'
 import { logOut } from '../redux/store/slices/getUsers/getUsers'
 import style from '../css/Nav.module.css'
 
+import logoutBtn from '../css/images/logOut.png'
 export default function Nav({userName}) {
 
 
@@ -26,7 +27,7 @@ export default function Nav({userName}) {
                 <h3>{userName}</h3>
             </div>
             <div>
-                <button onClick={e => handleClick()}>Salir</button>
+                <button className={style.logOut_btn} onClick={e => handleClick()}>Salir <img src={logoutBtn}/></button>
             </div>
 
 

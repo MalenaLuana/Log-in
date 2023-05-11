@@ -6,7 +6,7 @@ import Nav from "./Nav";
 import Notes from "./Notes";
 import PostNote from "./PostNote";
 import style from '../css/UserHome.module.css'
-
+import addBtn from '../css/images/add.png'
 export default function UserHome() {
      
     const dispatch = useDispatch()
@@ -35,12 +35,14 @@ const handleOpenPost = ()=>{
         <div className={style.container}>
             <Nav userName={name}/>
             <div className={style.dashboard}>
-                <button onClick={e=>handleOpenPost()}>Crear</button>
             {user ?
                 <div className={style.content}>
-                   { openPost && <PostNote user={user} />}
-                    <Notes notes={notes} userID={user} />
+                <div className={style.postNote}>
+                <button className={style.add_btn} onClick={e=>handleOpenPost()}><p>Crear nota</p><img src={addBtn} alt="icono de adición" /></button>
                 </div>
+                   { openPost && <PostNote openPost={setOpenPost} user={user} />}
+                <div className={style.notes}>{ notes ?  <Notes notes={notes} userID={user} />:'algo'}
+                </div></div>  
                 : <p>Perdón hubo un error, estamos trabajando en ello!</p>
             }
             </div>
